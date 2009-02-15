@@ -791,6 +791,7 @@ var Sortable = {
         var offset = Element.offsetSize(dropon, droponOptions.overlap) * (1.0 - overlap);
 
         for (index = 0; index < children.length; index += 1) {
+          if ((droponOptions.overlap == 'horizontal') && (element.viewportOffset()[1] > (children[index].viewportOffset()[1] + children[index].getHeight()))) continue;
           if (offset - Element.offsetSize (children[index], droponOptions.overlap) >= 0) {
             offset -= Element.offsetSize (children[index], droponOptions.overlap);
           } else if (offset - (Element.offsetSize (children[index], droponOptions.overlap) / 2) >= 0) {
